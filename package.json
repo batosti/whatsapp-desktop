@@ -2,7 +2,7 @@
   "name": "whatsapp-desktop",
   "version": "1.0.0",
   "description": "Whatsapp Desktop",
-  "main": "main.js",
+  "main": "app/index.js",
   "author": "André Batosti",
   "license": "MIT",
   "scripts": {
@@ -15,6 +15,13 @@
     "electron-builder": "^24.12.0"
   },
   "build": {
-    "appId": "whatsapp.desktop"
+    "appId": "whatsapp.desktop",
+    "files": [
+      "app/**/**",
+      "build/**/**",
+      "dist/**/**",
+      "node_modules/**/**",
+      "package.json"
+    ]
   }
 }
