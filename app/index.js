@@ -13,7 +13,9 @@ function onNewWindow(details) {
 }
 
 const createWindow = () => {
-  const window = new BrowserWindow()
+  const window = new BrowserWindow({
+    autoHideMenuBar: true,
+  })
   window.loadURL(appUrl, { userAgent: config.userAgent })
 
 	window.webContents.setWindowOpenHandler(onNewWindow);
