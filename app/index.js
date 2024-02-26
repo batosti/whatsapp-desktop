@@ -1,10 +1,23 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, shell } = require('electron');
 const { config } = require('./config');
 
-const createWindow = () => {
-  const win = new BrowserWindow()
+const appUrl = 'https://web.whatsapp.com'
 
-  win.loadURL('https://web.whatsapp.com', { userAgent: config.userAgent })
+/**
+ * @param {Electron.HandlerDetails} details 
+ * @returns {action: 'deny'}
+ */
+function onNewWindow(details) {
+  shell.openExternal(details.url);
+	return { action: 'deny' };
+}
+
+const createWindow = () => {
+  const window = new BrowserWindow()
+  window.loadURL(appUrl, { userAgent: config.userAgent })
+
+	window.webContents.setWindowOpenHandler(onNewWindow);
+
 }
 
 app.whenReady().then(() => {
