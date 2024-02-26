@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Whatsapp Desktop",
   "main": "app/index.js",
-  "author": "André Batosti",
+  "author": {
+    "name": "André Batosti",
+    "email": "batosti@gmail.com",
+    "url": "https://github.com/batosti/"
+  },
   "license": "MIT",
   "scripts": {
     "start": "electron ./app",
@@ -19,9 +23,23 @@
     "files": [
       "app/**/**",
       "build/**/**",
-      "dist/**/**",
       "node_modules/**/**",
       "package.json"
-    ]
+    ],
+    "linux": {
+      "category": "Chat;Network",
+      "packageCategory": "net",
+      "executableName": "whatsapp-desktop",
+      "synopsis": "Whatsapp Desktop",
+      "description": "Unofficial Whatsapp client for Linux using Electron and Whatsapp Web",
+      "desktop": {
+        "Name": "Whatsapp Desktop",
+        "Comment": "Unofficial Whatsapp client",
+        "StartupWMClass": "whatsapp-desktop"
+      },
+      "target": [
+        "deb"
+      ]
+    }
   }
 }
