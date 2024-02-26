@@ -1,5 +1,6 @@
-const { app, BrowserWindow, shell } = require('electron');
+const { app, BrowserWindow, shell, nativeImage } = require('electron');
 const { config } = require('./config');
+var path = require('path')
 
 const appUrl = 'https://web.whatsapp.com'
 
@@ -15,6 +16,7 @@ function onNewWindow(details) {
 const createWindow = () => {
   const window = new BrowserWindow({
     autoHideMenuBar: true,
+    icon: path.join(__dirname, 'assets/icons/64x64.png')
   })
   window.loadURL(appUrl, { userAgent: config.userAgent })
 
