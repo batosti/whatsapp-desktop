@@ -1,6 +1,7 @@
-const { app, BrowserWindow, shell, nativeImage } = require('electron');
+const { app, BrowserWindow, shell } = require('electron');
 const { config } = require('./config');
 var path = require('path')
+const contextMenu = require('electron-context-menu');
 
 const appUrl = 'https://web.whatsapp.com'
 
@@ -15,7 +16,6 @@ function onNewWindow(details) {
 
 const createWindow = () => {
   const window = new BrowserWindow({
-    autoHideMenuBar: true,
     icon: path.join(__dirname, 'assets/icons/64x64.png')
   })
   window.loadURL(appUrl, { userAgent: config.userAgent })
@@ -23,6 +23,10 @@ const createWindow = () => {
 	window.webContents.setWindowOpenHandler(onNewWindow);
 
 }
+
+contextMenu({
+	showSaveImageAs: true
+});
 
 app.whenReady().then(() => {
   app.setAsDefaultProtocolClient('whatsapp')

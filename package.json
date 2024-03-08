@@ -41,5 +41,8 @@
         "deb"
       ]
     }
+  },
+  "dependencies": {
+    "electron-context-menu": "^3.6.1"
   }
 }
