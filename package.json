@@ -26,6 +26,12 @@
       "node_modules/**/**",
       "package.json"
     ],
+    "protocols": {
+      "name": "whatsapp",
+      "schemes": [
+        "whatsapp"
+      ]
+    },
     "linux": {
       "category": "Chat;Network",
       "packageCategory": "net",
