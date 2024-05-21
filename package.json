@@ -1,5 +1,5 @@
 {
-  "name": "whatsapp-desktop",
+  "name": "whatsapp-electron",
   "version": "1.0.0",
   "description": "Whatsapp Desktop",
   "main": "app/index.js",
@@ -19,7 +19,7 @@
     "electron-builder": "^24.12.0"
   },
   "build": {
-    "appId": "whatsapp.desktop",
+    "appId": "whatsapp-electron",
     "files": [
       "app/**/**",
       "build/**/**",
@@ -35,16 +35,29 @@
     "linux": {
       "category": "Chat;Network",
       "packageCategory": "net",
-      "executableName": "whatsapp-desktop",
+      "executableName": "whatsapp-electron",
       "synopsis": "Whatsapp Desktop",
       "description": "Unofficial Whatsapp client for Linux using Electron and Whatsapp Web",
       "desktop": {
         "Name": "Whatsapp Desktop",
         "Comment": "Unofficial Whatsapp client",
-        "StartupWMClass": "whatsapp-desktop"
+        "StartupWMClass": "whatsapp-electron"
       },
       "target": [
-        "deb"
+        "deb",
+        "snap"
+      ]
+    },
+    "snap": {
+      "summary": "Whatsapp Desktop",
+      "confinement": "strict",
+      "grade": "stable",
+      "base": "core22",
+      "plugs": [
+        "default"
+      ],
+      "publish": [
+        "snapStore"
       ]
     }
   },
