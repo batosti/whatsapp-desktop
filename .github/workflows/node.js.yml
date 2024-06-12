@@ -26,10 +26,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
-    - run: sudo snap install snapcraft --classic
-    - run: export SNAPCRAFT_STORE_CREDENTIALS=$(cat ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}})
-    - run: npm run publish
+    - name: build and upload to snap
+      run: |
+        sudo snap install snapcraft --classic
+        echo ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}}
+        export SNAPCRAFT_STORE_CREDENTIALS=$(echo ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}})
+        npm run publish
     # - name: Install Snapcraft
     #   uses: samuelmeuli/action-snapcraft@v2
     # - name: Use Snapcraft
