@@ -29,10 +29,7 @@ jobs:
     - name: build and upload to snap
       run: |
         sudo snap install snapcraft --classic
-        echo ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}}
+        echo SECRET ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}}
         export SNAPCRAFT_STORE_CREDENTIALS=$(echo ${{secrets.SNAPCRAFT_STORE_CREDENTIALS}})
+        echo VAR $SNAPCRAFT_STORE_CREDENTIALS
         npm run publish
-    # - name: Install Snapcraft
-    #   uses: samuelmeuli/action-snapcraft@v2
-    # - name: Use Snapcraft
-    #   run: snapcraft upload --release=candidate dist/whatsapp-electron_1.0.0_amd64.snap
