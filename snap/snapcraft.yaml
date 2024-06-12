@@ -1,0 +1,13 @@
+name: whatsapp-electron
+base: core22
+version: '1.0.0'
+summary: Whatsapp Desktop
+description: |
+  Unofficial Whatsapp client for Linux using Electron and Whatsapp Web
+
+grade: stable
+confinement: strict
+
+parts:
+  my-part:
+    plugin: npm
