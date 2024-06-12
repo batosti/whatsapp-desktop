@@ -12,7 +12,8 @@
   "scripts": {
     "start": "electron ./app",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --linux snap"
+    "dist": "electron-builder --linux snap",
+    "publish": "electron-builder --linux snap -p always"
   },
   "devDependencies": {
     "electron": "^29.0.0",
