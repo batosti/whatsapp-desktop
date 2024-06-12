@@ -29,7 +29,5 @@ jobs:
     - name: build and upload to snap
       run: |
         sudo snap install snapcraft --classic
-        echo SECRET ${{secrets.SNAP_LOGIN}}
         export SNAPCRAFT_STORE_CREDENTIALS=$(echo ${{secrets.SNAP_LOGIN}})
-        echo VAR $SNAPCRAFT_STORE_CREDENTIALS
         npm run publish
