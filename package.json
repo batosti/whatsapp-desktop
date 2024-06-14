@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-electron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Whatsapp Desktop",
   "main": "app/index.js",
   "author": {
