@@ -11,3 +11,4 @@ confinement: strict
 parts:
   my-part:
     plugin: npm
+    source: .

@@ -21,7 +21,8 @@ function onNewWindow(details) {
 
 const createWindow = () => {
   window = new BrowserWindow({
-    icon: path.join(__dirname, 'assets/icons/64x64.png')
+    icon: path.join(__dirname, 'assets/icons/64x64.png'),
+	autoHideMenuBar: true
   })
   window.loadURL(appUrl, { userAgent: config.userAgent })
 
