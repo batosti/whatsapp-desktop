@@ -10,5 +10,7 @@ confinement: strict
 
 parts:
   my-part:
+    npm-include-node: true
+    npm-node-version: "20.14.0"
     plugin: npm
     source: .
