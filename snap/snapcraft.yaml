@@ -1,6 +1,6 @@
 name: whatsapp-electron
 base: core22
-version: '1.0.1'
+adopt-info: set-version
 summary: Whatsapp Desktop
 description: |
   Unofficial Whatsapp client for Linux using Electron and Whatsapp Web
@@ -14,3 +14,9 @@ parts:
     npm-node-version: "20.14.0"
     plugin: npm
     source: .
+  set-version:
+    source: .
+    override-pull: |
+      craftctl default
+      craftctl set version=$(npm pkg get version)
+      craftctl set grade="devel"    
