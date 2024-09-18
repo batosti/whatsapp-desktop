@@ -24,9 +24,13 @@ const createWindow = () => {
     icon: path.join(__dirname, 'assets/icons/64x64.png'),
 	autoHideMenuBar: true
   })
-  window.loadURL(appUrl, { userAgent: config.userAgent })
+  window.loadURL(appUrl, { userAgent: config.userAgent });
 
-	window.webContents.setWindowOpenHandler(onNewWindow);
+  window.webContents.setWindowOpenHandler(onNewWindow);
+
+  window.once('ready-to-show', () => {
+    window.maximize()
+  })
 }
 
 contextMenu({
