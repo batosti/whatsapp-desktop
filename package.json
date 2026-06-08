@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-electron",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Whatsapp Desktop",
   "main": "app/index.js",
   "author": {
@@ -10,14 +10,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "electron ./app",
+    "start": "electron ./app --no-sandbox",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --linux snap",
     "publish": "electron-builder --linux snap -p always"
   },
   "devDependencies": {
     "electron": "^39.2.5",
-    "electron-builder": "^24.12.0"
+    "electron-builder": "^26.15.2"
   },
   "build": {
     "appId": "whatsapp-electron",
