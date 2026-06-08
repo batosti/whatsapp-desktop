@@ -20,6 +20,7 @@
     "electron-builder": "^26.15.2"
   },
   "build": {
+    "desktopName": "Whatsapp Desktop",
     "appId": "whatsapp-electron",
     "files": [
       "app/**/**",
@@ -39,11 +40,7 @@
       "executableName": "whatsapp-electron",
       "synopsis": "Whatsapp Desktop",
       "description": "Unofficial Whatsapp client for Linux using Electron and Whatsapp Web",
-      "desktop": {
-        "Name": "Whatsapp Desktop",
-        "Comment": "Unofficial Whatsapp client",
-        "StartupWMClass": "whatsapp-electron"
-      },
+      "syncDesktopName": true,
       "target": [
         "deb",
         "snap"
@@ -64,5 +61,9 @@
   },
   "dependencies": {
     "electron-context-menu": "^3.6.1"
+  },
+  "allowScripts": {
+    "electron@39.8.10": true,
+    "electron-winstaller@5.4.0": true
   }
 }
