@@ -2,7 +2,9 @@
   "name": "whatsapp-electron",
   "version": "1.0.6",
   "description": "Whatsapp Desktop",
+  "desktopName": "whatsapp-electron.desktop",
   "main": "app/index.js",
+  "type": "module",
   "author": {
     "name": "André Batosti",
     "email": "batosti@gmail.com",
@@ -16,11 +18,10 @@
     "publish": "electron-builder --linux snap -p always"
   },
   "devDependencies": {
-    "electron": "^39.2.5",
-    "electron-builder": "^26.15.2"
+    "electron": "^44.7.0",
+    "electron-builder": "^26.17.0"
   },
   "build": {
-    "desktopName": "Whatsapp Desktop",
     "appId": "whatsapp-electron",
     "files": [
       "app/**/**",
@@ -41,29 +42,45 @@
       "synopsis": "Whatsapp Desktop",
       "description": "Unofficial Whatsapp client for Linux using Electron and Whatsapp Web",
       "syncDesktopName": true,
+      "desktop": {
+        "entry": {
+          "Name": "Whatsapp Desktop"
+        }
+      },
       "target": [
         "deb",
         "snap"
       ]
     },
-    "snap": {
-      "summary": "Whatsapp Desktop",
-      "confinement": "strict",
-      "grade": "stable",
-      "base": "core22",
-      "plugs": [
-        "default"
-      ],
+    "snapcraft": {
+      "base": "core24",
       "publish": [
-        "snapStore"
-      ]
+        {
+          "provider": "snapStore"
+        }
+      ],
+      "core24": {
+        "summary": "Whatsapp Desktop",
+        "grade": "stable",
+        "confinement": "strict",
+        "useLXD": true,
+        "plugs": [
+          "default",
+          "browser-support",
+          "audio-record",
+          "camera",
+          "screen-inhibit-control"
+        ]
+      }
     }
   },
   "dependencies": {
-    "electron-context-menu": "^3.6.1"
+    "electron-context-menu": "^5.1.0"
   },
   "allowScripts": {
-    "electron@39.8.10": true,
-    "electron-winstaller@5.4.0": true
+    "electron-winstaller@5.4.0": false
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
